@@ -6,14 +6,53 @@ function mostrarPersonajes() {
     document.getElementById("personajes").style.display = "block";
 }
 
-function elegirBombera(nombre) {
-    bomberaSeleccionada = nombre;
+.personajes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
 
-    document.getElementById("personajes").style.display = "none";
-    document.getElementById("mision").style.display = "block";
+.heroina {
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid #ffcc66;
+    border-radius: 25px;
+    padding: 25px;
+    transition: transform 0.2s;
+}
 
-    document.getElementById("nombreBombera").innerText =
-        "🦸‍♀️ Bombera " + nombre + ", tu misión comienza.";
+.heroina:hover {
+    transform: translateY(-8px);
+}
+
+.heroina-imagen {
+    font-size: 70px;
+    margin-bottom: 10px;
+}
+
+.heroina h2 {
+    color: #ffcc66;
+}
+
+.heroina p {
+    font-size: 15px;
+}
+
+.heroina button {
+    background: #ffcc66;
+    color: #3b0909;
+    width: 80%;
+}
+
+@media (max-width: 600px) {
+
+    .personajes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .heroina {
+        width: 100%;
+    }
 }
 
 function respuestaCorrecta() {
