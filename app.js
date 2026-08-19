@@ -5,54 +5,59 @@ function mostrarPersonajes() {
     document.getElementById("inicio").style.display = "none";
     document.getElementById("personajes").style.display = "block";
 }
+function elegirBombera(nombre) {
 
-.personajes-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-    margin-top: 30px;
-}
+    bomberaSeleccionada = nombre;
 
-.heroina {
-    background: rgba(255, 255, 255, 0.08);
-    border: 2px solid #ffcc66;
-    border-radius: 25px;
-    padding: 25px;
-    transition: transform 0.2s;
-}
+    document.getElementById("personajes").style.display = "none";
+    document.getElementById("mision").style.display = "block";
 
-.heroina:hover {
-    transform: translateY(-8px);
-}
+    document.getElementById("nombreBombera").innerText =
+        nombre.toUpperCase();
 
-.heroina-imagen {
-    font-size: 70px;
-    margin-bottom: 10px;
-}
+    if (nombre === "Valentina") {
 
-.heroina h2 {
-    color: #ffcc66;
-}
+        document.getElementById("especialidadBombera").innerText =
+            "🔥 Especialista en Extinción";
 
-.heroina p {
-    font-size: 15px;
-}
+        document.getElementById("avatarBombera").innerText =
+            "🔥🦸‍♀️";
 
-.heroina button {
-    background: #ffcc66;
-    color: #3b0909;
-    width: 80%;
-}
-
-@media (max-width: 600px) {
-
-    .personajes-grid {
-        grid-template-columns: 1fr;
     }
 
-    .heroina {
-        width: 100%;
+    if (nombre === "Sofía") {
+
+        document.getElementById("especialidadBombera").innerText =
+            "🧗‍♀️ Especialista en Rescate";
+
+        document.getElementById("avatarBombera").innerText =
+            "🧗‍♀️";
+
     }
+
+    if (nombre === "Camila") {
+
+        document.getElementById("especialidadBombera").innerText =
+            "☣️ Especialista en Materiales Peligrosos";
+
+        document.getElementById("avatarBombera").innerText =
+            "☣️🦸‍♀️";
+
+    }
+
+    if (nombre === "Daniela") {
+
+        document.getElementById("especialidadBombera").innerText =
+            "🚑 Especialista en Atención Prehospitalaria";
+
+        document.getElementById("avatarBombera").innerText =
+            "🚑🦸‍♀️";
+
+    }
+
+    document.getElementById("nivelBombera").innerText = "1";
+    document.getElementById("energiaBombera").innerText = "100";
+    document.getElementById("puntosBombera").innerText = "0";
 }
 
 function respuestaCorrecta() {
