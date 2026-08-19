@@ -1,5 +1,7 @@
 let bomberaSeleccionada = "";
 let puntos = 0;
+let energia = 100;
+let nivel = 1;
 
 function mostrarPersonajes() {
     document.getElementById("inicio").style.display = "none";
@@ -8,6 +10,9 @@ function mostrarPersonajes() {
 function elegirBombera(nombre) {
 
     bomberaSeleccionada = nombre;
+    puntos = 0;
+    energia = 100;
+    nivel = 1;
 
     document.getElementById("personajes").style.display = "none";
     document.getElementById("mision").style.display = "block";
@@ -16,71 +21,80 @@ function elegirBombera(nombre) {
         nombre.toUpperCase();
 
     if (nombre === "Valentina") {
-
         document.getElementById("especialidadBombera").innerText =
             "🔥 Especialista en Extinción";
-
         document.getElementById("avatarBombera").innerText =
             "🔥🦸‍♀️";
-
     }
 
     if (nombre === "Sofía") {
-
         document.getElementById("especialidadBombera").innerText =
             "🧗‍♀️ Especialista en Rescate";
-
         document.getElementById("avatarBombera").innerText =
             "🧗‍♀️";
-
     }
 
     if (nombre === "Camila") {
-
         document.getElementById("especialidadBombera").innerText =
             "☣️ Especialista en Materiales Peligrosos";
-
         document.getElementById("avatarBombera").innerText =
             "☣️🦸‍♀️";
-
     }
 
     if (nombre === "Daniela") {
-
         document.getElementById("especialidadBombera").innerText =
             "🚑 Especialista en Atención Prehospitalaria";
-
         document.getElementById("avatarBombera").innerText =
             "🚑🦸‍♀️";
-
     }
 
-    document.getElementById("nivelBombera").innerText = "1";
-    document.getElementById("energiaBombera").innerText = "100";
-    document.getElementById("puntosBombera").innerText = "0";
+    actualizarEstadisticas();
 }
+function actualizarEstadisticas() {
 
+    document.getElementById("nivelBombera").innerText = nivel;
+
+    document.getElementById("energiaBombera").innerText =
+        energia;
+
+    document.getElementById("puntosBombera").innerText =
+        puntos;
+}
 function respuestaCorrecta() {
 
     puntos += 100;
 
+    actualizarEstadisticas();
+
     alert(
         "🟢 ¡DECISIÓN CORRECTA!\n\n" +
-        "Has ganado +100 puntos.\n\n" +
-        "Antes de intervenir se debe evaluar el escenario, " +
-        "identificar los riesgos y determinar los recursos necesarios."
+        "+100 puntos ⭐\n\n" +
+        "Has demostrado una adecuada toma de decisiones."
     );
+
+    nivel = 2;
+
+    actualizarEstadisticas();
 
     siguienteNivel();
 }
 
 function respuestaIncorrecta() {
 
+    energia -= 20;
+
+    actualizarEstadisticas();
+
     alert(
         "🔴 DECISIÓN INCORRECTA\n\n" +
-        "Entrar sin evaluar los riesgos puede poner en peligro " +
-        "a la bombera, a las víctimas y al equipo de respuesta."
+        "-20 de energía ❤️\n\n" +
+        "Una intervención sin evaluación puede poner " +
+        "en riesgo al personal, las víctimas y los recursos."
     );
+
+    if (energia <= 0) {
+        gameOver();
+    }
 }
 
 function siguienteNivel() {
@@ -253,4 +267,21 @@ function finalIncorrecto() {
         "Una respuesta segura requiere evaluación, " +
         "coordinación y cumplimiento de procedimientos."
     );
+}
+function respuestaIncorrecta() {
+
+    energia -= 20;
+
+    actualizarEstadisticas();
+
+    alert(
+        "🔴 DECISIÓN INCORRECTA\n\n" +
+        "-20 de energía ❤️\n\n" +
+        "Una intervención sin evaluación puede poner " +
+        "en riesgo al personal, las víctimas y los recursos."
+    );
+
+    if (energia <= 0) {
+        gameOver();
+    }
 }
