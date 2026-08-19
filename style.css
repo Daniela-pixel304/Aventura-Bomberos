@@ -181,3 +181,92 @@ button:hover {
         width: 100%;
     }
 }
+.perfil-bombera {
+    background: rgba(0, 0, 0, 0.35);
+    border: 2px solid #ffcc66;
+    border-radius: 25px;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+.avatar-bombera {
+    font-size: 80px;
+    margin-bottom: 10px;
+}
+
+.perfil-bombera h1 {
+    margin: 5px 0;
+}
+
+.perfil-bombera h2 {
+    color: #ffcc66;
+}
+
+.estadisticas {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+.estadistica {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 15px;
+    padding: 15px 25px;
+    min-width: 100px;
+}
+
+.estadistica strong {
+    font-size: 12px;
+}
+
+.estadistica span {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.mision-card {
+    background: rgba(255,255,255,0.08);
+    border-radius: 25px;
+    padding: 30px;
+    border: 2px solid #ff3b30;
+}
+
+.etiqueta {
+    display: inline-block;
+    background: #ffcc66;
+    color: #3b0909;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.mision-card h2 {
+    font-size: 30px;
+}
+
+.mision-card h3 {
+    margin: 25px 0;
+    line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+
+    .estadistica {
+        min-width: 80px;
+        padding: 12px;
+    }
+
+    .mision-card {
+        padding: 20px 15px;
+    }
+
+    .mision-card h2 {
+        font-size: 24px;
+    }
+}
