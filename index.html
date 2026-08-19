@@ -99,38 +99,54 @@
 </div>
 
     </div>
+.personajes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
 
+.heroina {
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid #ffcc66;
+    border-radius: 25px;
+    padding: 25px;
+    transition: transform 0.2s;
+}
 
-    <div id="mision" style="display:none;">
+.heroina:hover {
+    transform: translateY(-8px);
+}
 
-        <h1>🚨 ¡ALERTA DE EMERGENCIA!</h1>
+.heroina-imagen {
+    font-size: 70px;
+    margin-bottom: 10px;
+}
 
-        <h2 id="nombreBombera"></h2>
+.heroina h2 {
+    color: #ffcc66;
+}
 
-        <p>
-            Se reporta un incendio en una edificación de tres pisos.
-        </p>
+.heroina p {
+    font-size: 15px;
+}
 
-        <p>
-            🔥 Hay humo visible.<br>
-            🏢 Edificación de tres pisos.<br>
-            👤 Posible persona atrapada.<br>
-            ☣️ Se desconoce si existen materiales peligrosos.
-        </p>
+.heroina button {
+    background: #ffcc66;
+    color: #3b0909;
+    width: 80%;
+}
 
-        <h2>¿Cuál es tu primera decisión?</h2>
+@media (max-width: 600px) {
 
-        <button onclick="respuestaCorrecta()">
-            🔎 Evaluar el escenario y los riesgos
-        </button>
+    .personajes-grid {
+        grid-template-columns: 1fr;
+    }
 
-        <button onclick="respuestaIncorrecta()">
-            🔥 Entrar inmediatamente
-        </button>
-
-        <button onclick="respuestaIncorrecta()">
-            🏃‍♀️ Entrar sin equipo para ahorrar tiempo
-        </button>
+    .heroina {
+        width: 100%;
+    }
+}
 
     </div>
 
