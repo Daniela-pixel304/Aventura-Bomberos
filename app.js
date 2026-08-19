@@ -101,32 +101,228 @@ function siguienteNivel() {
 
     document.getElementById("mision").innerHTML = `
 
-        <h1>🎓 NIVEL 2: FORMACIÓN</h1>
+        <div class="perfil-bombera">
 
-        <h2>Bombera ${bomberaSeleccionada}</h2>
+            <div class="avatar-bombera">
+                🦸‍♀️
+            </div>
 
-        <p>
-            Antes de asumir funciones operativas,
-            una bombera necesita formación y entrenamiento.
-        </p>
+            <h1>${bomberaSeleccionada.toUpperCase()}</h1>
 
-        <h2>¿Qué permite principalmente el entrenamiento?</h2>
+            <h2>🎓 NIVEL 2: FORMACIÓN</h2>
 
-        <button onclick="formacionCorrecta()">
-            🧠 Desarrollar conocimientos y habilidades
-        </button>
+            <div class="estadisticas">
 
-        <button onclick="formacionIncorrecta()">
-            🎖️ Recibir automáticamente el rango de bombera
-        </button>
+                <div class="estadistica">
+                    ⭐
+                    <strong>NIVEL</strong>
+                    <span>${nivel}</span>
+                </div>
 
-        <button onclick="formacionIncorrecta()">
-            🚒 Obtener un vehículo personal
-        </button>
+                <div class="estadistica">
+                    ❤️
+                    <strong>ENERGÍA</strong>
+                    <span>${energia}</span>
+                </div>
+
+                <div class="estadistica">
+                    🏅
+                    <strong>PUNTOS</strong>
+                    <span>${puntos}</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="mision-card">
+
+            <span class="etiqueta">
+                🎓 MISIÓN 2
+            </span>
+
+            <h2>
+                FORMACIÓN Y ENTRENAMIENTO
+            </h2>
+
+            <p>
+                Ya superaste la primera etapa.
+                Ahora debes demostrar que estás preparada
+                para actuar de manera segura y coordinada.
+            </p>
+
+            <h3>
+                🚒 ¿Por qué son importantes la capacitación
+                y el entrenamiento de una bombera?
+            </h3>
+
+            <button onclick="formacionCorrecta()">
+                🧠 Desarrollar conocimientos,
+                habilidades y competencias
+            </button>
+
+            <button onclick="formacionIncorrecta()">
+                🎖️ Obtener automáticamente un rango
+            </button>
+
+            <button onclick="formacionIncorrecta()">
+                🚒 Recibir un vehículo personal
+            </button>
+
+        </div>
 
     `;
 }
+function formacionCorrecta() {
 
+    puntos += 100;
+
+    nivel = 3;
+
+    actualizarEstadisticas();
+
+    alert(
+        "🟢 ¡CORRECTO!\n\n" +
+        "+100 puntos ⭐\n\n" +
+        "La capacitación y el entrenamiento permiten " +
+        "desarrollar las competencias necesarias para " +
+        "una respuesta segura y eficaz."
+    );
+
+    nivelOperativo();
+}
+function formacionIncorrecta() {
+
+    energia -= 20;
+
+    actualizarEstadisticas();
+
+    alert(
+        "🔴 RESPUESTA INCORRECTA\n\n" +
+        "-20 de energía ❤️\n\n" +
+        "La formación tiene como finalidad preparar " +
+        "al personal para desempeñar sus funciones " +
+        "de manera segura y competente."
+    );
+
+    if (energia <= 0) {
+        gameOver();
+    }
+}
+function nivelOperativo() {
+
+    document.getElementById("mision").innerHTML = `
+
+        <div class="perfil-bombera">
+
+            <div class="avatar-bombera">
+                🚒🦸‍♀️
+            </div>
+
+            <h1>${bomberaSeleccionada.toUpperCase()}</h1>
+
+            <h2>🚒 NIVEL 3: MODELO OPERATIVO</h2>
+
+            <div class="estadisticas">
+
+                <div class="estadistica">
+                    ⭐
+                    <strong>NIVEL</strong>
+                    <span>${nivel}</span>
+                </div>
+
+                <div class="estadistica">
+                    ❤️
+                    <strong>ENERGÍA</strong>
+                    <span>${energia}</span>
+                </div>
+
+                <div class="estadistica">
+                    🏅
+                    <strong>PUNTOS</strong>
+                    <span>${puntos}</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="mision-card">
+
+            <span class="etiqueta">
+                🚒 MISIÓN 3
+            </span>
+
+            <h2>
+                MODELO OPERATIVO
+            </h2>
+
+            <p>
+                Una emergencia requiere organización,
+                coordinación, recursos y procedimientos.
+                Como bombera debes comprender cómo funciona
+                la respuesta operativa.
+            </p>
+
+            <h3>
+                🚨 ¿Qué permite una adecuada capacidad operativa?
+            </h3>
+
+            <button onclick="operativoCorrecto()">
+                👩‍🚒 Personal capacitado +
+                equipos +
+                procedimientos +
+                coordinación
+            </button>
+
+            <button onclick="operativoIncorrecto()">
+                🔥 Actuar individualmente
+            </button>
+
+            <button onclick="operativoIncorrecto()">
+                🚨 Improvisar durante toda la emergencia
+            </button>
+
+        </div>
+
+    `;
+}
+function operativoCorrecto() {
+
+    puntos += 150;
+
+    nivel = 4;
+
+    actualizarEstadisticas();
+
+    alert(
+        "🟢 ¡EXCELENTE!\n\n" +
+        "+150 puntos ⭐\n\n" +
+        "La capacidad operativa requiere integrar " +
+        "personal, equipos, procedimientos y coordinación."
+    );
+
+    nivelFinanciamiento();
+}
+function operativoIncorrecto() {
+
+    energia -= 25;
+
+    actualizarEstadisticas();
+
+    alert(
+        "🔴 DECISIÓN INCORRECTA\n\n" +
+        "-25 de energía ❤️\n\n" +
+        "La respuesta ante emergencias requiere " +
+        "organización, coordinación y procedimientos."
+    );
+
+    if (energia <= 0) {
+        gameOver();
+    }
+}
 function formacionCorrecta() {
 
     puntos += 100;
