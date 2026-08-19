@@ -1,0 +1,135 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #160000, #3b0909, #101010);
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+#inicio,
+#personajes,
+#mision {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 35px 25px;
+}
+
+h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+h2 {
+    margin: 20px 0;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 15px auto;
+    max-width: 700px;
+}
+
+button {
+    border: none;
+    border-radius: 18px;
+    padding: 18px 25px;
+    margin: 10px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    background: white;
+    color: #720000;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+#inicio {
+    border: 2px solid #ffcc66;
+    border-radius: 30px;
+    background: rgba(0,0,0,0.45);
+}
+
+#inicio h1 {
+    font-size: 50px;
+}
+
+#personajes {
+    border-radius: 30px;
+    background: rgba(0,0,0,0.45);
+}
+
+#personajes button {
+    width: 190px;
+    min-height: 150px;
+    vertical-align: top;
+}
+
+#personajes button:first-letter {
+    font-size: 35px;
+}
+
+#mision {
+    border: 3px solid #ff3b30;
+    border-radius: 30px;
+    background: rgba(70,0,0,0.65);
+}
+
+#mision button {
+    display: block;
+    width: 90%;
+    max-width: 650px;
+    margin: 15px auto;
+}
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 10px;
+    }
+
+    #inicio,
+    #personajes,
+    #mision {
+        margin: 15px auto;
+        padding: 25px 15px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    #inicio h1 {
+        font-size: 36px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    #personajes button {
+        width: 90%;
+        min-height: 120px;
+    }
+
+    button {
+        width: 90%;
+        margin: 8px auto;
+    }
+}
