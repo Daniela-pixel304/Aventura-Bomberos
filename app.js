@@ -515,84 +515,349 @@ function misionFinal() {
 
     document.getElementById("mision").innerHTML = `
 
-        <h1>🔥 MISIÓN FINAL</h1>
+        <div class="perfil-bombera">
 
-        <h2>🚨 Emergencia en curso</h2>
+            <div class="avatar-bombera">
+                🚨🦸‍♀️
+            </div>
 
-        <p>
-            Se reporta un incendio en una edificación.
-            Hay una posible persona atrapada.
-        </p>
+            <h1>${bomberaSeleccionada.toUpperCase()}</h1>
 
-        <h2>
-            ¿Cuál debe ser tu prioridad?
-        </h2>
+            <h2>🔥 MISIÓN FINAL</h2>
 
-        <button onclick="finalCorrecto()">
-            🧑‍🚒 Proteger la vida y actuar de forma segura
-        </button>
+            <div class="estadisticas">
 
-        <button onclick="finalIncorrecto()">
-            🔥 Entrar inmediatamente sin evaluar
-        </button>
+                <div class="estadistica">
+                    ⭐
+                    <strong>NIVEL</strong>
+                    <span>${nivel}</span>
+                </div>
 
-        <button onclick="finalIncorrecto()">
-            🏃‍♀️ Actuar sin coordinación
-        </button>
+                <div class="estadistica">
+                    ❤️
+                    <strong>ENERGÍA</strong>
+                    <span>${energia}</span>
+                </div>
+
+                <div class="estadistica">
+                    🏅
+                    <strong>PUNTOS</strong>
+                    <span>${puntos}</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="mision-card">
+
+            <span class="etiqueta">
+                🚨 EMERGENCIA REAL
+            </span>
+
+            <h2>
+                INCENDIO ESTRUCTURAL
+            </h2>
+
+            <p>
+                Son las 10:32. Se recibe una alerta por
+                incendio en una edificación de tres pisos.
+            </p>
+
+            <p>
+                🔥 Hay humo visible.<br>
+                🏢 Hay personas dentro del edificio.<br>
+                ⚠️ Se desconocen inicialmente todos los riesgos.
+            </p>
+
+            <h3>
+                🔎 ¿Cuál es tu primera acción?
+            </h3>
+
+            <button onclick="decisionEscenaCorrecta()">
+                🔎 Evaluar la escena, identificar riesgos
+                y establecer una estrategia
+            </button>
+
+            <button onclick="decisionEscenaIncorrecta()">
+                🔥 Entrar inmediatamente al edificio
+            </button>
+
+        </div>
 
     `;
 }
+function decisionEscenaCorrecta() {
 
-function finalCorrecto() {
+    puntos += 100;
 
-    puntos += 200;
+    actualizarEstadisticas();
 
     document.getElementById("mision").innerHTML = `
 
-        <h1>🏆 ¡MISIÓN COMPLETADA!</h1>
+        <div class="mision-card">
 
-        <h2>🦸‍♀️ Bombera ${bomberaSeleccionada}</h2>
+            <span class="etiqueta">
+                ✅ DECISIÓN CORRECTA
+            </span>
 
-        <p>
-            Has completado la operación y demostrado
-            conocimientos sobre incorporación, formación,
-            capacidad operativa y toma de decisiones.
-        </p>
+            <h2>
+                🧯 PREPARACIÓN PARA LA INTERVENCIÓN
+            </h2>
 
-        <h1>⭐ ${puntos} PUNTOS</h1>
+            <p>
+                Has evaluado el escenario.
+                Ahora debes prepararte para intervenir.
+            </p>
 
-        <h2>🚒 ¡Excelente trabajo!</h2>
+            <h3>
+                ¿Qué debes hacer antes de ingresar?
+            </h3>
 
-        <p>
-            La emergencia dura minutos.
-            La preparación comienza mucho antes.
-        </p>
+            <button onclick="eppCorrecto()">
+                🧯 Utilizar el EPP correspondiente
+                y verificar las condiciones de seguridad
+            </button>
+
+            <button onclick="eppIncorrecto()">
+                🏃‍♀️ Entrar rápidamente sin equipamiento
+            </button>
+
+        </div>
 
     `;
 }
+function decisionEscenaIncorrecta() {
 
-function finalIncorrecto() {
-
-    alert(
-        "🔴 MISIÓN FALLIDA\n\n" +
-        "Una respuesta segura requiere evaluación, " +
-        "coordinación y cumplimiento de procedimientos."
-    );
-}
-function respuestaIncorrecta() {
-
-    energia -= 20;
+    energia -= 25;
 
     actualizarEstadisticas();
 
     alert(
         "🔴 DECISIÓN INCORRECTA\n\n" +
-        "-20 de energía ❤️\n\n" +
-        "Una intervención sin evaluación puede poner " +
-        "en riesgo al personal, las víctimas y los recursos."
+        "-25 de energía ❤️\n\n" +
+        "La evaluación de la escena permite identificar " +
+        "riesgos y establecer una respuesta segura."
     );
 
     if (energia <= 0) {
         gameOver();
     }
+}
+function eppCorrecto() {
+
+    puntos += 100;
+
+    actualizarEstadisticas();
+
+    document.getElementById("mision").innerHTML = `
+
+        <div class="mision-card">
+
+            <span class="etiqueta">
+                🧯 SEGURIDAD
+            </span>
+
+            <h2>
+                📢 COORDINACIÓN DE LA OPERACIÓN
+            </h2>
+
+            <p>
+                El equipo está preparado.
+                Ahora debes coordinar la respuesta.
+            </p>
+
+            <h3>
+                ¿Qué acción favorece una respuesta organizada?
+            </h3>
+
+            <button onclick="coordinacionCorrecta()">
+                📢 Mantener comunicación y coordinación
+                con el equipo
+            </button>
+
+            <button onclick="coordinacionIncorrecta()">
+                🏃‍♀️ Actuar de manera independiente
+            </button>
+
+        </div>
+
+    `;
+}
+function eppIncorrecto() {
+
+    energia -= 25;
+
+    actualizarEstadisticas();
+
+    alert(
+        "🔴 DECISIÓN INCORRECTA\n\n" +
+        "-25 de energía ❤️\n\n" +
+        "El uso adecuado de los elementos de protección " +
+        "es fundamental para reducir la exposición a riesgos."
+    );
+
+    if (energia <= 0) {
+        gameOver();
+    }
+}
+function coordinacionCorrecta() {
+
+    puntos += 100;
+
+    actualizarEstadisticas();
+
+    document.getElementById("mision").innerHTML = `
+
+        <div class="mision-card">
+
+            <span class="etiqueta">
+                📢 COORDINACIÓN
+            </span>
+
+            <h2>
+                🧑‍🚒 RESCATE
+            </h2>
+
+            <p>
+                Se informa que una persona podría estar
+                atrapada en el segundo piso.
+            </p>
+
+            <h3>
+                ¿Cuál debe ser el enfoque de la intervención?
+            </h3>
+
+            <button onclick="rescateCorrecto()">
+                🧑‍🚒 Priorizar la vida, evaluar el riesgo
+                y realizar el rescate de forma segura
+            </button>
+
+            <button onclick="rescateIncorrecto()">
+                🔥 Ignorar a la víctima y concentrarse
+                únicamente en el fuego
+            </button>
+
+        </div>
+
+    `;
+}
+function coordinacionIncorrecta() {
+
+    energia -= 25;
+
+    actualizarEstadisticas();
+
+    alert(
+        "🔴 DECISIÓN INCORRECTA\n\n" +
+        "-25 de energía ❤️\n\n" +
+        "Una emergencia requiere coordinación y comunicación " +
+        "entre quienes participan en la respuesta."
+    );
+
+    if (energia <= 0) {
+        gameOver();
+    }
+}
+function rescateCorrecto() {
+
+    puntos += 150;
+
+    actualizarEstadisticas();
+
+    resultadoFinal();
+
+}
+function rescateIncorrecto() {
+
+    energia -= 30;
+
+    actualizarEstadisticas();
+
+    alert(
+        "🔴 DECISIÓN INCORRECTA\n\n" +
+        "-30 de energía ❤️\n\n" +
+        "La protección de la vida es una prioridad " +
+        "en la respuesta a emergencias."
+    );
+
+    if (energia <= 0) {
+        gameOver();
+    }
+}
+function resultadoFinal() {
+
+    let rango = "";
+
+    if (puntos >= 800) {
+        rango = "🏆 BOMBERA ÉLITE";
+    } else if (puntos >= 600) {
+        rango = "🥇 BOMBERA OPERATIVA";
+    } else {
+        rango = "🥉 BOMBERA EN FORMACIÓN";
+    }
+
+    document.getElementById("mision").innerHTML = `
+
+        <div class="mision-card">
+
+            <h1>🏆 MISIÓN COMPLETADA</h1>
+
+            <div class="avatar-bombera">
+                🦸‍♀️🚒
+            </div>
+
+            <h2>
+                ${bomberaSeleccionada.toUpperCase()}
+            </h2>
+
+            <h2>
+                ${rango}
+            </h2>
+
+            <p>
+                Has completado la operación demostrando
+                conocimientos sobre incorporación,
+                formación, modelo operativo,
+                financiamiento y respuesta ante emergencias.
+            </p>
+
+            <div class="estadisticas">
+
+                <div class="estadistica">
+                    ⭐
+                    <strong>PUNTOS</strong>
+                    <span>${puntos}</span>
+                </div>
+
+                <div class="estadistica">
+                    ❤️
+                    <strong>ENERGÍA</strong>
+                    <span>${energia}</span>
+                </div>
+
+                <div class="estadistica">
+                    🏅
+                    <strong>NIVEL</strong>
+                    <span>${nivel}</span>
+                </div>
+
+            </div>
+
+            <h2>
+                🚒 ¡MISIÓN COMPLETADA!
+            </h2>
+
+            <p>
+                La emergencia dura minutos.
+                La preparación comienza mucho antes.
+            </p>
+
+            <button onclick="location.reload()">
+                🔄 NUEVA MISIÓN
+            </button>
+
+        </div>
+
+    `;
 }
