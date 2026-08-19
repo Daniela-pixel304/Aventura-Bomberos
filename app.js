@@ -323,6 +323,121 @@ function operativoIncorrecto() {
         gameOver();
     }
 }
+function nivelFinanciamiento() {
+
+    document.getElementById("mision").innerHTML = `
+
+        <div class="perfil-bombera">
+
+            <div class="avatar-bombera">
+                💰🦸‍♀️
+            </div>
+
+            <h1>${bomberaSeleccionada.toUpperCase()}</h1>
+
+            <h2>💰 NIVEL 4: RECURSOS Y FINANCIAMIENTO</h2>
+
+            <div class="estadisticas">
+
+                <div class="estadistica">
+                    ⭐
+                    <strong>NIVEL</strong>
+                    <span>${nivel}</span>
+                </div>
+
+                <div class="estadistica">
+                    ❤️
+                    <strong>ENERGÍA</strong>
+                    <span>${energia}</span>
+                </div>
+
+                <div class="estadistica">
+                    🏅
+                    <strong>PUNTOS</strong>
+                    <span>${puntos}</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="mision-card">
+
+            <span class="etiqueta">
+                💰 MISIÓN 4
+            </span>
+
+            <h2>
+                ¿CÓMO SE FINANCIA LA ACTIVIDAD BOMBERIL?
+            </h2>
+
+            <p>
+                Los recursos permiten fortalecer la capacitación,
+                infraestructura, equipamiento y capacidad de respuesta
+                de los cuerpos de bomberos.
+            </p>
+
+            <h3>
+                🚒 ¿Cuál es una fuente de recursos
+                del Fondo Nacional de Bomberos?
+            </h3>
+
+            <button onclick="financiamientoCorrecto()">
+                🏦 Aportes establecidos por la Ley,
+                recursos del presupuesto nacional
+                y otras contribuciones permitidas
+            </button>
+
+            <button onclick="financiamientoIncorrecto()">
+                🎟️ Cobrar a los ciudadanos cada vez
+                que atienden una emergencia
+            </button>
+
+            <button onclick="financiamientoIncorrecto()">
+                💵 Cobrar obligatoriamente a cada víctima
+                por el rescate
+            </button>
+
+        </div>
+
+    `;
+}
+function financiamientoCorrecto() {
+
+    puntos += 150;
+
+    nivel = 5;
+
+    actualizarEstadisticas();
+
+    alert(
+        "🟢 ¡CORRECTO!\n\n" +
+        "+150 puntos ⭐\n\n" +
+        "Los recursos permiten fortalecer la capacitación, " +
+        "infraestructura, equipamiento y capacidad operativa " +
+        "de los cuerpos de bomberos."
+    );
+
+    misionFinal();
+}
+function financiamientoIncorrecto() {
+
+    energia -= 25;
+
+    actualizarEstadisticas();
+
+    alert(
+        "🔴 RESPUESTA INCORRECTA\n\n" +
+        "-25 de energía ❤️\n\n" +
+        "Los servicios de emergencia de los cuerpos " +
+        "de bomberos no se cobran directamente a la ciudadanía."
+    );
+
+    if (energia <= 0) {
+        gameOver();
+    }
+}
 function formacionCorrecta() {
 
     puntos += 100;
