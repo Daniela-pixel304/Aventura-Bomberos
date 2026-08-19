@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operación 10:32</title>
+</head>
+
+<body>
+
+    <div id="inicio">
+        <h1>🚒 OPERACIÓN 10:32</h1>
+
+        <h2>🔥 SIMULADOR DE BOMBERAS VOLUNTARIAS 🔥</h2>
+
+        <p>
+            La emergencia dura minutos.
+            La preparación comienza mucho antes.
+        </p>
+
+        <button onclick="mostrarPersonajes()">
+            🚨 INICIAR MISIÓN
+        </button>
+    </div>
+
+
+    <div id="personajes" style="display:none;">
+
+        <h1>🦸‍♀️ ELIGE TU BOMBERA</h1>
+
+        <p>
+            Cada heroína tiene una especialidad.
+            Elige a tu personaje para comenzar la misión.
+        </p>
+
+        <div>
+
+            <button onclick="elegirBombera('Valentina')">
+                🔥
+                <br>
+                <strong>VALENTINA</strong>
+                <br>
+                Extinción
+            </button>
+
+            <button onclick="elegirBombera('Sofía')">
+                🧗‍♀️
+                <br>
+                <strong>SOFÍA</strong>
+                <br>
+                Rescate
+            </button>
+
+            <button onclick="elegirBombera('Camila')">
+                ☣️
+                <br>
+                <strong>CAMILA</strong>
+                <br>
+                Materiales peligrosos
+            </button>
+
+            <button onclick="elegirBombera('Daniela')">
+                🚑
+                <br>
+                <strong>DANIELA</strong>
+                <br>
+                Atención prehospitalaria
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div id="mision" style="display:none;">
+
+        <h1>🚨 ¡ALERTA DE EMERGENCIA!</h1>
+
+        <h2 id="nombreBombera"></h2>
+
+        <p>
+            Se reporta un incendio en una edificación de tres pisos.
+        </p>
+
+        <p>
+            🔥 Hay humo visible.<br>
+            🏢 Edificación de tres pisos.<br>
+            👤 Posible persona atrapada.<br>
+            ☣️ Se desconoce si existen materiales peligrosos.
+        </p>
+
+        <h2>¿Cuál es tu primera decisión?</h2>
+
+        <button onclick="respuestaCorrecta()">
+            🔎 Evaluar el escenario y los riesgos
+        </button>
+
+        <button onclick="respuestaIncorrecta()">
+            🔥 Entrar inmediatamente
+        </button>
+
+        <button onclick="respuestaIncorrecta()">
+            🏃‍♀️ Entrar sin equipo para ahorrar tiempo
+        </button>
+
+    </div>
+
+
+    <script>
+
+        function mostrarPersonajes() {
+
+            document.getElementById("inicio").style.display = "none";
+
+            document.getElementById("personajes").style.display = "block";
+
+        }
+
+
+        function elegirBombera(nombre) {
+
+            document.getElementById("personajes").style.display = "none";
+
+            document.getElementById("mision").style.display = "block";
+
+            document.getElementById("nombreBombera").innerText =
+                "🦸‍♀️ Bombera " + nombre + ", tu misión comienza.";
+
+        }
+
+
+        function respuestaCorrecta() {
+
+            alert(
+                "🟢 ¡DECISIÓN CORRECTA!\n\n" +
+                "Antes de intervenir se debe evaluar el escenario, " +
+                "identificar los riesgos y determinar los recursos necesarios."
+            );
+
+        }
+
+
+        function respuestaIncorrecta() {
+
+            alert(
+                "🔴 DECISIÓN INCORRECTA\n\n" +
+                "Entrar sin evaluar los riesgos puede poner en peligro " +
+                "a la bombera, a las víctimas y al equipo de respuesta."
+            );
+
+        }
+
+    </script>
+
+</body>
+</html>
