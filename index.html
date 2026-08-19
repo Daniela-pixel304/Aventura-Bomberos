@@ -98,59 +98,79 @@
 
 </div>
 
-    </div>
-.personajes-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-    margin-top: 30px;
-}
+    <div id="mision" style="display:none;">
 
-.heroina {
-    background: rgba(255, 255, 255, 0.08);
-    border: 2px solid #ffcc66;
-    border-radius: 25px;
-    padding: 25px;
-    transition: transform 0.2s;
-}
+    <div class="perfil-bombera">
 
-.heroina:hover {
-    transform: translateY(-8px);
-}
+        <div class="avatar-bombera" id="avatarBombera">
+            🦸‍♀️
+        </div>
 
-.heroina-imagen {
-    font-size: 70px;
-    margin-bottom: 10px;
-}
+        <h1 id="nombreBombera">BOMBERA</h1>
 
-.heroina h2 {
-    color: #ffcc66;
-}
+        <h2 id="especialidadBombera">
+            Especialidad
+        </h2>
 
-.heroina p {
-    font-size: 15px;
-}
+        <div class="estadisticas">
 
-.heroina button {
-    background: #ffcc66;
-    color: #3b0909;
-    width: 80%;
-}
+            <div class="estadistica">
+                ⭐
+                <strong>NIVEL</strong>
+                <span id="nivelBombera">1</span>
+            </div>
 
-@media (max-width: 600px) {
+            <div class="estadistica">
+                ❤️
+                <strong>ENERGÍA</strong>
+                <span id="energiaBombera">100</span>
+            </div>
 
-    .personajes-grid {
-        grid-template-columns: 1fr;
-    }
+            <div class="estadistica">
+                🏅
+                <strong>PUNTOS</strong>
+                <span id="puntosBombera">0</span>
+            </div>
 
-    .heroina {
-        width: 100%;
-    }
-}
+        </div>
 
     </div>
 
+    <div class="mision-card">
 
+        <span class="etiqueta">
+            🎓 MISIÓN 1
+        </span>
+
+        <h2>
+            PROCESO DE INCORPORACIÓN
+        </h2>
+
+        <p>
+            Antes de responder una emergencia,
+            debes demostrar que estás preparada.
+        </p>
+
+        <h3>
+            🚒 ¿Cuál es la importancia de la formación
+            y el entrenamiento?
+        </h3>
+
+        <button onclick="respuestaCorrecta()">
+            🧠 Desarrollar conocimientos y competencias
+        </button>
+
+        <button onclick="respuestaIncorrecta()">
+            🎖️ Recibir automáticamente un rango
+        </button>
+
+        <button onclick="respuestaIncorrecta()">
+            🚒 Obtener un vehículo personal
+        </button>
+
+    </div>
+
+</div>
     <script src="app.js"></script>
 
 </body>
