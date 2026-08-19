@@ -133,3 +133,51 @@ button:hover {
         margin: 8px auto;
     }
 }
+.personajes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.heroina {
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid #ffcc66;
+    border-radius: 25px;
+    padding: 25px;
+    transition: transform 0.2s;
+}
+
+.heroina:hover {
+    transform: translateY(-8px);
+}
+
+.heroina-imagen {
+    font-size: 70px;
+    margin-bottom: 10px;
+}
+
+.heroina h2 {
+    color: #ffcc66;
+}
+
+.heroina p {
+    font-size: 15px;
+}
+
+.heroina button {
+    background: #ffcc66;
+    color: #3b0909;
+    width: 80%;
+}
+
+@media (max-width: 600px) {
+
+    .personajes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .heroina {
+        width: 100%;
+    }
+}
