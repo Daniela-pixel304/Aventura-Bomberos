@@ -107,50 +107,6 @@
     </div>
 
 
-    <script>
-
-        function mostrarPersonajes() {
-
-            document.getElementById("inicio").style.display = "none";
-
-            document.getElementById("personajes").style.display = "block";
-
-        }
-
-
-        function elegirBombera(nombre) {
-
-            document.getElementById("personajes").style.display = "none";
-
-            document.getElementById("mision").style.display = "block";
-
-            document.getElementById("nombreBombera").innerText =
-                "🦸‍♀️ Bombera " + nombre + ", tu misión comienza.";
-
-        }
-
-
-        function respuestaCorrecta() {
-
-            alert(
-                "🟢 ¡DECISIÓN CORRECTA!\n\n" +
-                "Antes de intervenir se debe evaluar el escenario, " +
-                "identificar los riesgos y determinar los recursos necesarios."
-            );
-
-        }
-
-
-        function respuestaIncorrecta() {
-
-            alert(
-                "🔴 DECISIÓN INCORRECTA\n\n" +
-                "Entrar sin evaluar los riesgos puede poner en peligro " +
-                "a la bombera, a las víctimas y al equipo de respuesta."
-            );
-
-        }
-
     <script src="app.js"></script>
 
 </body>
